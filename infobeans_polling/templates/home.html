@@ -1,0 +1,40 @@
+{% include "header.html" %}
+{% load static %}
+
+{% block header %}
+
+  <section class="h-100 gradient-form">
+  <div class="container py-5">
+<div class="accordion">
+
+        <h1 class="accordion-title">Available Polls</h1>
+ {% for poll in polls %}
+        <div class="content-container">
+            <div class="question">{{ poll.question }}</div>
+            <div class="answer"> <a href="{% url 'vote' poll.id %}" class="btn btn-info">Vote</a> &nbsp;
+                        <a href="{% url 'result' poll.id %}" class="btn btn-info">View Results</a> &nbsp;
+
+            </div>
+        </div>
+{% endfor %}
+      </div>
+  </div>
+</section>
+    {% endblock %}
+
+
+{% block content %}
+    {% include "footer.html" %}
+{% endblock %}
+
+<script>
+    const accordion = document.getElementsByClassName("content-container");
+
+for (let i = 0; i < accordion.length; i++) {
+  accordion[i].addEventListener("click", function () {
+    this.classList.toggle("active");
+    console.log(this);
+  });
+}
+
+</script>

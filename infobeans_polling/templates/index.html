@@ -1,0 +1,58 @@
+{% include "header.html" %}
+
+{% block header %}
+
+<!-- Carousel wrapper -->
+<div
+  id="carouselBasicExample"
+  class="carousel slide carousel-fade"
+  data-mdb-ride="carousel"
+ style="margin-top: -15px;">
+  <!-- Indicators -->
+  <div class="carousel-indicators">
+    <button
+      type="button"
+      data-mdb-target="#carouselBasicExample"
+      data-mdb-slide-to="0"
+      class="active"
+      aria-current="true"
+      aria-label="Slide 1"
+    ></button>
+    <button
+      type="button"
+      data-mdb-target="#carouselBasicExample"
+      data-mdb-slide-to="1"
+      aria-label="Slide 2"
+    ></button>
+    <button
+      type="button"
+      data-mdb-target="#carouselBasicExample"
+      data-mdb-slide-to="2"
+      aria-label="Slide 3"
+    ></button>
+  </div>
+
+  <!-- Inner -->
+  <div class="carousel-inner">
+    <!-- Single item -->
+    <div class="carousel-item active">
+      <img
+        src="https://img.freepik.com/free-photo/young-business-woman-checking-satisfaction-checklist-box-copy-space_1258-88647.jpg?w=1060&t=st=1688377266~exp=1688377866~hmac=ed9b646da942afa68739e3be533294c84fdfa2d1415f02d0051589b3c95dc0b9"
+        class="d-block w-100"
+        alt="Sunset Over the City"
+      />
+     
+    </div>
+
+   
+  </div>
+
+</div>
+<!-- Carousel wrapper -->
+
+{% endblock %}
+
+
+{% block content %}
+    {% include "footer.html" %}
+{% endblock %}
