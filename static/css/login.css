@@ -110,3 +110,17 @@ border-radius: 5px;
     background: rgba(0,0,255,0.2);
     color: white;
     }
+
+label {
+color:#fff!important;
+}
+
+.form-text{
+color:#fff!important;
+}
+#div_id_image{
+color:#fff!important;
+}
+#div_id_image a{
+color:#fff!important;
+}

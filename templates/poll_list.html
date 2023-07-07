@@ -1,0 +1,26 @@
+
+{% include "header.html" %}
+
+{% block header %}
+{% load crispy_forms_tags  %}
+<section class="h-100 gradient-form">
+  <div class="container py-5">
+
+{% for poll in polls %}
+    <div>
+        <h3>{{ poll.title }}</h3>
+        <p>Posted by: {{ poll.user.username }}</p>
+        <p>Created at: {{ poll.created_at }}</p>
+    </div>
+{% empty %}
+    <p>No posts found.</p>
+{% endfor %}
+
+      </div>
+</section>
+    {% endblock %}
+
+
+{% block content %}
+    {% include "footer.html" %}
+{% endblock %}

@@ -48,12 +48,34 @@
                                    <a href="{% url 'infobeans_polling_app:user_register' %}"  class="fw-bold fs-8 text-primary"> Register as Voter</a>
                                 </li>
                                 {% endif %}
-                                {% if user.is_authenticated %}
-                                 <li class="float-md-start px-4 pe-1 pt-4">
-                                   <a href="{% url 'user_logout' %}"  class="fw-bold fs-8 text-primary"> Logout</a>
+                                 {% if user.is_authenticated %}
+
+                                     <li class="float-md-start px-4 pe-1 pt-4">
+                                          <div class="dropdown pmd-dropdown pmd-user-info ml-auto">
+                                                 <a href="javascript:void(0);" class="btn-user media align-items-center" data-toggle="dropdown" data-sidebar="true" aria-expanded="false">
+                                                     <img class="rounded-circle account-img " src="{{ user.profile.image.url }}" width="35" height="35"/>
+
+
+                                                 </a>
+                                              <ul class="dropdown-menu dropdown-menu-right" role="menu">
+<!--                                                   <a class="dropdown-item" href="% url 'user_poll_list' %">My Post Questions</a>-->
+                                                    <a class="dropdown-item" href="{% url 'profile' %}">Edit Profile</a>
+                                                    <a class="dropdown-item" href="{% url 'user_logout' %}">Logout</a>
+                                                </ul>
+                                          </div>
+
+<!--                                   <a href="{% url 'profile' %}"  class="fw-bold fs-8 text-primary"> View profile</a>-->
                                 </li>
                                   {% endif %}
+
+<!--                                 <li class="float-md-start px-4 pe-1 pt-4">-->
+<!--                                   <a href="{% url 'user_logout' %}"  class="fw-bold fs-8 text-primary"> Logout</a>-->
+<!--                                </li>-->
+
+
                             </ul>
+
+
                         </div>
                     </div>
                 </div>

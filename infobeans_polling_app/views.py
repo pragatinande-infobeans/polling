@@ -1,10 +1,11 @@
+from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
 from django.shortcuts import HttpResponse, render, redirect
 from django.views.generic import TemplateView
 from django.contrib.auth.models import User
-from .forms import RegistrationForm
-from .forms import CreatePollForm
+from .forms import RegistrationForm,CreatePollForm, ProfileUpdateForm, UserUpdateForm
 from .models import Poll
 
 class indexView(TemplateView):
@@ -87,6 +88,7 @@ def home(request):
     return render(request, 'home.html', context)
 def create(request):
     if request.method == 'POST':
+        poll = Poll()
         form = CreatePollForm(request.POST)
         if form.is_valid():
             form.save()
@@ -126,3 +128,28 @@ def result(request, poll_id):
         'poll' : poll
     }
     return render(request, 'result.html', context)
+
+# Update it here
+@login_required
+def profile(request):
+    if request.method == 'POST':
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfileUpdateForm(request.POST,
+                                   request.FILES,
+                                   instance=request.user.profile)
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, f'Your account has been updated!')
+            return redirect('profile') # Redirect back to profile page
+
+    else:
+        u_form = UserUpdateForm(instance=request.user)
+        p_form = ProfileUpdateForm(instance=request.user.profile)
+
+    context = {
+        'u_form': u_form,
+        'p_form': p_form
+    }
+
+    return render(request, 'profile.html', context)

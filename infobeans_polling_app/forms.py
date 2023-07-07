@@ -4,6 +4,7 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 from django.forms import ModelForm
 from .models import Poll
+from .models import Profile
 
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField()
@@ -31,3 +32,16 @@ class CreatePollForm(ModelForm):
     class Meta:
         model = Poll
         fields = ['question', 'option_one', 'option_two', 'option_three']
+
+# Create a UserUpdateForm to update a username and email
+class UserUpdateForm(forms.ModelForm):
+    email = forms.EmailField()
+    class Meta:
+        model = User
+        fields = ['username', 'email']
+
+# Create a ProfileUpdateForm to update image.
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['image']
