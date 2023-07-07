@@ -20,7 +20,7 @@
         <div class="header container-fluid bg-white">
             <div id="menu-jk" class="nav-col text-white shadow-md mb-3">
                 <div class="container">
-                    <div class="row">
+                    <div class="row" style="width:125%">
                         <div class="col-lg-6 pt-2 pb-2 align-items-center">
                             <a href="{% url 'indexView' %}" class="fw-bold fs-8 text-primary"> <img class="max-230 mt-2" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUSaKjA7Cg60bHX9Gd7E7SNFoNpIsiBlaLVZXF0mlzyyunKbnS9qh4-Zf-8K7SoxOEJQ&usqp=CAU" alt="logo" width="190px"></a>
                             <a  data-bs-toggle="collapse" data-bs-target="#menu" class="float-end text-dark d-lg-none pt-1 ps-3"><i class="bi pt-1 fs-1 cp bi-list"></i></a>
@@ -31,26 +31,20 @@
                                  <li class="float-md-start px-4 pe-1 pt-4">
                                    <a href="{% url 'home' %}" class="fw-bold fs-8 text-primary"> View Survey List</a>
                                 </li>
-                                 {% endif %}
-                                {% if user.is_authenticated %}
                                 <li class="float-md-start px-4 pe-1 pt-4">
                                    <a href="{% url 'infobeans_polling_app:create' %}" class="fw-bold fs-8 text-primary"> Create Polling Servey</a>
                                 </li>
-                                {% endif %}
-
-                                {% if not user.is_authenticated %}
-                                <li class="float-md-start px-4 pe-1 pt-4">
-                                   <a href="{% url 'infobeans_polling_app:user_login' %}" class="fw-bold fs-8 text-primary"> Login</a>
-                                </li>
-                                {% endif %}
-                                {% if not user.is_authenticated %}
                                  <li class="float-md-start px-4 pe-1 pt-4">
-                                   <a href="{% url 'infobeans_polling_app:user_register' %}"  class="fw-bold fs-8 text-primary"> Register as Voter</a>
-                                </li>
-                                {% endif %}
-                                 {% if user.is_authenticated %}
+                                <a class="fw-bold fs-8 text-primary" href="{% url 'posts:create' %}" class="btn btn-simple">Post</a>
+                                 </li>
+                                      <li class="float-md-start px-4 pe-1 pt-4">
+            <a class="fw-bold fs-8 text-primary" href="{% url 'groups:all' %}" class="btn btn-simple">Groups</a>
+                            </li>
+                                 <li class="float-md-start px-4 pe-1 pt-4">
+            <a class="fw-bold fs-8 text-primary" href="{% url 'groups:create' %}" class="btn btn-simple">Create Group</a>
+                            </li>
 
-                                     <li class="float-md-start px-4 pe-1 pt-4">
+                                 <li class="float-md-start px-4 pe-1 pt-4">
                                           <div class="dropdown pmd-dropdown pmd-user-info ml-auto">
                                                  <a href="javascript:void(0);" class="btn-user media align-items-center" data-toggle="dropdown" data-sidebar="true" aria-expanded="false">
                                                      <img class="rounded-circle account-img " src="{{ user.profile.image.url }}" width="35" height="35"/>
@@ -66,7 +60,22 @@
 
 <!--                                   <a href="{% url 'profile' %}"  class="fw-bold fs-8 text-primary"> View profile</a>-->
                                 </li>
-                                  {% endif %}
+
+
+
+                                 {% endif %}
+
+
+                                {% if not user.is_authenticated %}
+                                <li class="float-md-start px-4 pe-1 pt-4">
+                                   <a href="{% url 'infobeans_polling_app:user_login' %}" class="fw-bold fs-8 text-primary"> Login</a>
+                                </li>
+                                <li class="float-md-start px-4 pe-1 pt-4">
+                                   <a href="{% url 'infobeans_polling_app:user_register' %}"  class="fw-bold fs-8 text-primary"> Register as Voter</a>
+                                </li>
+                                {% endif %}
+
+
 
 <!--                                 <li class="float-md-start px-4 pe-1 pt-4">-->
 <!--                                   <a href="{% url 'user_logout' %}"  class="fw-bold fs-8 text-primary"> Logout</a>-->

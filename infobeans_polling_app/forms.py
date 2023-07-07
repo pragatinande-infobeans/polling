@@ -12,6 +12,14 @@ class RegistrationForm(UserCreationForm):
                                 widget=forms.PasswordInput)
     password2 = forms.CharField(label='Confirm password',
                                 widget=forms.PasswordInput)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['username'].widget.attrs.update({'class': 'form-control'})
+        self.fields['email'].widget.attrs.update({'class': 'form-control'})
+        self.fields['password1'].widget.attrs.update({'class': 'form-control'})
+        self.fields['password2'].widget.attrs.update({'class': 'form-control'})
+
     class Meta:
         model = User
         fields = ('username', 'email', 'password1', 'password2')

@@ -1,0 +1,13 @@
+{% include "header.html" %}
+
+{% block header %}
+
+<div class="container custom_css">
+  <div class="row">
+    {% block pregroup %}{% endblock %}
+    {% block group_content %}{% endblock %}
+    {% block postgroup %}{% endblock %}
+  </div>
+</div>
+
+{% endblock %}
