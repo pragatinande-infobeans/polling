@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-'django.contrib.humanize',
+    'django.contrib.humanize',
     'infobeans_polling_app',
     'widget_tweaks',
     'crispy_forms',
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'groups.apps.GroupsConfig',
     'posts.apps.PostsConfig',
+    'blog.apps.BlogConfig',
 
 ]
 

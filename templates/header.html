@@ -34,15 +34,35 @@
                                 <li class="float-md-start px-4 pe-1 pt-4">
                                    <a href="{% url 'infobeans_polling_app:create' %}" class="fw-bold fs-8 text-primary"> Create Polling Servey</a>
                                 </li>
+
                                  <li class="float-md-start px-4 pe-1 pt-4">
-                                <a class="fw-bold fs-8 text-primary" href="{% url 'posts:create' %}" class="btn btn-simple">Post</a>
-                                 </li>
-                                      <li class="float-md-start px-4 pe-1 pt-4">
-            <a class="fw-bold fs-8 text-primary" href="{% url 'groups:all' %}" class="btn btn-simple">Groups</a>
-                            </li>
-                                 <li class="float-md-start px-4 pe-1 pt-4">
-            <a class="fw-bold fs-8 text-primary" href="{% url 'groups:create' %}" class="btn btn-simple">Create Group</a>
-                            </li>
+                                          <div class="dropdown pmd-dropdown pmd-user-info ml-auto">
+                                                <a class="fw-bold fs-8 text-primary" href="{% url 'blog:post_list' %}" class="btn btn-simple">Blogs</a>
+                                              <ul class="dropdown-menu dropdown-menu-right" role="menu">
+<!--                                                   <a class="dropdown-item" href="% url 'user_poll_list' %">My Post Questions</a>-->
+                                                  <a class="dropdown-item" href="{% url 'blog:post_new' %}" class="btn btn-simple">Create Blog</a>
+                                                    <a class="dropdown-item" href="{% url 'blog:post_draft_list' %}" class="btn btn-simple">Drafts</a>
+
+                                                </ul>
+                                          </div>
+
+<!--                                   <a href="{% url 'profile' %}"  class="fw-bold fs-8 text-primary"> View profile</a>-->
+                                </li>
+
+
+                                <li class="float-md-start px-4 pe-1 pt-4">
+                                          <div class="dropdown pmd-dropdown pmd-user-info ml-auto">
+                                                <a class="fw-bold fs-8 text-primary" href="{% url 'groups:all' %}" class="btn btn-simple">Groups</a>
+                                              <ul class="dropdown-menu dropdown-menu-right" role="menu">
+<!--                                                   <a class="dropdown-item" href="% url 'user_poll_list' %">My Post Questions</a>-->
+                                                  <a class="dropdown-item" href="{% url 'groups:create' %}" class="btn btn-simple">Create Group</a>
+                                                    <a class="dropdown-item" href="{% url 'posts:create' %}" class="btn btn-simple">Post</a>
+
+                                                </ul>
+                                          </div>
+
+<!--                                   <a href="{% url 'profile' %}"  class="fw-bold fs-8 text-primary"> View profile</a>-->
+                                </li>
 
                                  <li class="float-md-start px-4 pe-1 pt-4">
                                           <div class="dropdown pmd-dropdown pmd-user-info ml-auto">
@@ -70,8 +90,9 @@
                                 <li class="float-md-start px-4 pe-1 pt-4">
                                    <a href="{% url 'infobeans_polling_app:user_login' %}" class="fw-bold fs-8 text-primary"> Login</a>
                                 </li>
+
                                 <li class="float-md-start px-4 pe-1 pt-4">
-                                   <a href="{% url 'infobeans_polling_app:user_register' %}"  class="fw-bold fs-8 text-primary"> Register as Voter</a>
+                                   <a href="{% url 'infobeans_polling_app:user_register' %}"  class="fw-bold fs-8 text-primary">Registration</a>
                                 </li>
                                 {% endif %}
 

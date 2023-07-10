@@ -1,0 +1,17 @@
+{% extends 'blog/base.html' %}
+
+{% block header %}
+<section class="h-100 gradient-form">
+  <div class="container py-5">
+        <div class="container py-5 big-padding custom_css">
+    {% for post in posts %}
+        <div class="post">
+            <p class="date">created: {{ post.created_date|date:'d-m-Y' }}</p>
+            <h1><a href="{% url 'blog:post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            <p>{{ post.text|truncatechars:200 }}</p>
+        </div>
+        </div>
+  </div>
+</section>
+    {% endfor %}
+{% endblock %}

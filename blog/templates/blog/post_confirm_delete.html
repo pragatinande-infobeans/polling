@@ -1,0 +1,12 @@
+{% extends "blog/base.html" %}
+{% block header %}
+<section class="h-100 gradient-form">
+<div class="container custom_css">
+  <form action="" method="post">{% csrf_token %}
+    <p>Are you sure you want to delete "{{ object }}"?</p>
+    </br>
+    <input class='btn btn-danger' type="submit" value="Confirm" />
+  </form>
+</div>
+</section>
+{% endblock %}

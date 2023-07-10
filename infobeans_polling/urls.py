@@ -31,8 +31,9 @@ urlpatterns = [
     path('result/<poll_id>/', views.result, name='result'),
     path('vote/<poll_id>/', views.vote, name='vote'),
     path('profile/', views.profile, name='profile'),
-path('posts/', include("posts.urls", namespace="posts")),
-    path('groups/',include("groups.urls", namespace="groups")),
+    path('posts/', include("posts.urls", namespace="posts")),
+    path('groups/', include("groups.urls", namespace="groups")),
+    path('blog/', include(('blog.urls', 'blog'), namespace="blog")),
 ]
 
 # Only add this when we are in debug mode.

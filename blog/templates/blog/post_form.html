@@ -1,0 +1,17 @@
+{% extends 'blog/base.html' %}
+{% load bootstrap4 %}
+{% block header %}
+<section class="h-100 gradient-form">
+<div class="container custom_css">
+    <h1>New post</h1>
+    <form method="POST" class="post-form">
+    {% csrf_token %}
+  	{% bootstrap_form form %}
+    <button type="submit" class="btn btn-primary btn-large">Save</button>
+    </form>
+
+    <script>var editor = new MediumEditor('.editable');</script>
+
+  </div>
+</section>
+{% endblock %}

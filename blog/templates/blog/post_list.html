@@ -1,0 +1,24 @@
+{% extends 'blog/base.html' %}
+
+{% block header %}
+<section class="h-100 gradient-form">
+  <div class="container py-5">
+        <div class="container py-5 big-padding custom_css">
+<div class="centerstage">
+
+
+    {% for post in post_list %}
+        <div class="post">
+
+            <h1><a href="{% url 'blog:post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            <div class="date">
+                <p>Published on: {{ post.published_date|date:"D M Y"}}</p>
+            </div>
+            <a href="{% url 'blog:post_detail' pk=post.pk %}">Comments: {{ post.approve_comments.count }}</a>
+        </div>
+    {% endfor %}
+</div>
+        </div>
+  </div>
+</section>
+{% endblock %}
